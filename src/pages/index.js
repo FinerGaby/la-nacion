@@ -3,10 +3,10 @@ import { Button } from "../../common/components/Button";
 import { CustomLink } from "../../common/components/CustomLink";
 import { formatDate } from "../../common/utils";
 import { ListArticles } from "../../common/components/ListArticles";
-
+import { NEXT_PUBLIC_API_URL } from "../../config";
 export const getStaticProps = async () => {
   try {
-    const fetching = await fetch("api/articles");
+    const fetching = await fetch(`${NEXT_PUBLIC_API_URL}/api/articles`);
     let data = await fetching.json();
     return {
       props: {
