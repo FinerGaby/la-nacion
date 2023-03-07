@@ -6,7 +6,7 @@ import { ListArticles } from "../../common/components/ListArticles";
 
 export const getStaticProps = async () => {
   try {
-    const fetching = await fetch("http://localhost:3000/api/articles");
+    const fetching = await fetch("api/articles");
     let data = await fetching.json();
     return {
       props: {
@@ -68,7 +68,9 @@ const Home = (props) => {
           <div class="row">
             <div id="" class="cont_tags com-secondary-tag hlp-marginBottom-20">
               {listTaxonomy?.map((item, index) => (
-                <CustomLink key={index} href={`/tema/${item.slug}`}>{item.text}</CustomLink>
+                <CustomLink key={index} href={`/tema/${item.slug}`}>
+                  {item.text}
+                </CustomLink>
               ))}
             </div>
           </div>
